@@ -1,336 +1,371 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Leaf, Handshake, Cpu, Calendar, Users, MapPin, Factory, 
+  Award, Sparkles, Wheat, Shield, Truck, Home, Globe, Heart,
+  ChevronDown, ChevronUp
+} from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { ChevronDown, ChevronUp, Award, Sparkles } from 'lucide-react';
 
 const About = () => {
   const [expandedValue, setExpandedValue] = useState<number | null>(null);
-  const [activeTimeline, setActiveTimeline] = useState<number>(0);
 
   const values = [
     {
-      icon: "🌱",
+      icon: <Leaf className="text-emerald-500" size={32} />,
       title: "Purity",
-      description: "We believe in keeping our products pure and natural, without any artificial additives or preservatives.",
-      details: "Our modern grinding process preserves all natural nutrients and ensures no chemicals touch your flour. Every grain is carefully selected and processed with advanced techniques that maintain traditional quality standards.",
-      color: "from-green-400 to-emerald-500"
+      description: "100% natural flour with no artificial additives",
+      details: "Our modern grinding process preserves all natural nutrients without chemicals. Every grain is carefully selected and processed with advanced techniques that maintain traditional quality standards.",
+      color: "bg-emerald-100"
     },
     {
-      icon: "🤝",
+      icon: <Handshake className="text-blue-500" size={32} />,
       title: "Trust",
-      description: "Building lasting relationships with our customers through consistent quality and transparency.",
-      details: "With over 20 years of service, we've built trust through consistent quality, transparent processes, and by always putting our customers first. Our open-door policy means you can visit our mill anytime.",
-      color: "from-blue-400 to-cyan-500"
+      description: "Built over 20 years of consistent quality",
+      details: "We've earned trust through transparent processes and putting customers first. Our open-door policy means you can visit our mill anytime to see our operations firsthand.",
+      color: "bg-blue-100"
     },
     {
-      icon: "🏭",
-      title: "Modern Technology",
-      description: "Using cutting-edge techniques while maintaining the essence of traditional flour milling.",
-      details: "We employ state-of-the-art machinery and modern techniques for flour production, ensuring efficiency, hygiene, and consistency while preserving the nutritional value and taste of traditional methods.",
-      color: "from-amber-400 to-orange-500"
+      icon: <Cpu className="text-amber-500" size={32} />,
+      title: "Innovation",
+      description: "Cutting-edge milling technology",
+      details: "State-of-the-art machinery ensures efficiency, hygiene, and consistency while preserving nutritional value and authentic taste of traditional methods.",
+      color: "bg-amber-100"
     }
   ];
 
-  const timeline = [
+  const milestones = [
     {
       year: "2003",
-      title: "The Beginning",
-      description: "Surjit Kumar establishes Verma Flour Mill with a vision to provide fresh, pure flour using modern techniques.",
-      stats: { customers: "100+", villages: "5", mills: "1" },
-      color: "bg-gradient-to-r from-amber-500 to-orange-500"
+      title: "Foundation",
+      description: "Surjit Kumar establishes Verma Flour Mill with modern milling techniques",
+      icon: <Factory className="text-amber-600" size={24} />,
+      stats: {
+        customers: "100+",
+        villages: "5",
+        production: "2 tons/day"
+      }
     },
     {
       year: "2008",
-      title: "Technology Upgrade",
-      description: "Investment in modern milling equipment and quality control systems.",
-      stats: { customers: "1000+", villages: "20+", mills: "3" },
-      color: "bg-gradient-to-r from-orange-500 to-red-500"
+      title: "Technology Leap",
+      description: "Invested in advanced milling equipment and quality systems",
+      icon: <Cpu className="text-orange-600" size={24} />,
+      stats: {
+        customers: "1000+",
+        villages: "20+",
+        production: "10 tons/day"
+      }
     },
     {
       year: "2015",
-      title: "Expansion & Growth",
-      description: "Expanded operations with advanced machinery and increased production capacity.",
-      stats: { customers: "5000+", villages: "100+", mills: "8" },
-      color: "bg-gradient-to-r from-blue-500 to-purple-500"
+      title: "Expansion",
+      description: "Opened new facilities with increased production capacity",
+      icon: <MapPin className="text-blue-600" size={24} />,
+      stats: {
+        customers: "5000+",
+        villages: "100+",
+        production: "50 tons/day"
+      }
     },
     {
       year: "2020",
-      title: "Digital Innovation",
-      description: "Launch of online platform and home delivery services with modern logistics.",
-      stats: { customers: "15000+", villages: "500+", mills: "15" },
-      color: "bg-gradient-to-r from-purple-500 to-pink-500"
+      title: "Digital Transformation",
+      description: "Launched online ordering and home delivery services",
+      icon: <Globe className="text-purple-600" size={24} />,
+      stats: {
+        customers: "15000+",
+        villages: "500+",
+        production: "100 tons/day"
+      }
     }
   ];
 
-  return (
-    <div className="min-h-screen">
-      <Navbar />
-      
-      {/* Hero Section with improved spacing */}
-      <section className="relative min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 overflow-hidden  ">
-      
-        
-        <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center min-h-screen">
-          <div className="w-full">
-            <div className="text-center">
-              <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm text-amber-800 px-6 mb-10 rounded-full text-lg font-medium  hover:bg-white/90 transition-all duration-300 cursor-pointer">
-                <Sparkles className="animate-spin" size={20} />
-                Est. 2003
-                <Award className="animate-bounce" size={20} />
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold text-amber-900 mb-12 leading-tight">
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 animate-pulse">Story</span>
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-16">
-                From modern techniques to serving families across the nation - 
-                discover the legacy of <span className="font-bold text-amber-800">Verma Flour Mill</span> founded by <span className="font-bold text-orange-700">Surjit Kumar</span>
-              </p>
-              
-              <div className="flex flex-wrap justify-center gap-8 mb-8">
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl font-bold text-amber-600">20+</div>
-                  <div className="text-sm text-gray-600">Years Legacy</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl font-bold text-orange-600">15K+</div>
-                  <div className="text-sm text-gray-600">Happy Families</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/90 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl font-bold text-yellow-600">100%</div>
-                  <div className="text-sm text-gray-600">Pure & Fresh</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="animate-bounce">
-                <ChevronDown className="mx-auto text-amber-600 hover:text-amber-800 transition-colors cursor-pointer" size={40} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  const stats = [
+    { value: "20+", label: "Years of Excellence", icon: <Calendar size={20} className="text-amber-500" /> },
+    { value: "5K+", label: "Happy Families", icon: <Home size={20} className="text-orange-500" /> },
+    { value: "6+", label: "Villages Served", icon: <MapPin size={20} className="text-red-500" /> },
+    { value: "100%", label: "Natural Ingredients", icon: <Leaf size={20} className="text-emerald-500" /> }
+  ];
 
-      {/* Interactive Story Section with improved spacing */}
-      <section className="py-2 bg-white relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-50 to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <div className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium">
-                Our Heritage
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-amber-900 leading-tight">
-                A Modern Legacy That Started in <span className="text-orange-600">2003</span>
-              </h2>
-              
-              <div className="space-y-8 text-gray-700 leading-relaxed text-lg">
-                <div className="p-8 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border-l-4 border-amber-500 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                  <p className="font-medium text-gray-800 mb-4">
-                    It all began with a vision of <span className="text-amber-700 font-bold">Surjit Kumar</span>, who believed that fresh, 
-                    pure flour should be accessible to every household using modern techniques.
-                  </p>
-                  <p>
-                    Starting with advanced milling equipment and modern quality standards, he laid the 
-                    foundation of what would become a trusted name in contemporary flour milling.
-                  </p>
-                </div>
-                
-                <div className="p-8 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                  <p>
-                    Over two decades, we have embraced cutting-edge technology while maintaining our commitment 
-                    to freshness and purity. Our modern approach ensures consistent quality and efficient 
-                    processing while preserving the nutritional value of every grain.
-                  </p>
-                </div>
-                
-                <div className="p-8 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-l-4 border-green-500 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                  <p>
-                    Today, Verma Flour Mill stands as a symbol of modern excellence, 
-                    bringing the benefits of advanced technology and fresh, pure flour to thousands of families 
-                    who value quality, nutrition, and innovation.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl blur opacity-20 animate-pulse"></div>
-              <div className="relative bg-gradient-to-br from-amber-100 to-orange-100 rounded-3xl p-8 shadow-2xl">
-                <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl h-96 flex items-center justify-center text-white relative overflow-hidden">
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  <div className="relative text-center z-10">
-                    <div className="text-8xl mb-6 animate-bounce">🏭</div>
-                    <h3 className="text-4xl font-bold mb-4">2003</h3>
-                    <p className="text-xl opacity-90 mb-4">Modern Innovation Begins</p>
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                      <p className="text-sm italic">
-                        "Fresh, pure flour through modern excellence" - Surjit Kumar
-                      </p>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/grain-pattern.svg')] opacity-10"></div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-full shadow-sm mb-8"
+            >
+              <Sparkles className="text-amber-500 animate-pulse" size={18} />
+              <span className="text-amber-800 font-medium">Est. 2003</span>
+              <Award className="text-amber-500 animate-bounce" size={18} />
+            </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Story</span>
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-xl text-gray-600 max-w-3xl mx-auto mb-12"
+            >
+              From a single mill to serving thousands of families - the journey of Verma Flour Mill founded by Surjit Kumar with a vision for pure, modern flour production.
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-6 mb-16"
+            >
+              {stats.map((stat, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-3">
+                    {stat.icon}
+                    <div>
+                      <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
+                      <div className="text-sm text-gray-500">{stat.label}</div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              ))}
+            </motion.div>
+
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <ChevronDown className="mx-auto text-amber-500" size={32} />
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Values Section with improved spacing */}
-      <section className="py-12 bg-gradient-to-br from-gray-50 to-amber-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              Our Foundation
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-8">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide us in everything we do
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer border border-transparent hover:border-amber-200"
-                onClick={() => setExpandedValue(expandedValue === index ? null : index)}
-              >
-                <div className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <span className="text-3xl">{value.icon}</span>
-                </div>
-                
-                <h3 className="text-2xl font-semibold text-amber-900 mb-6 group-hover:text-amber-700 transition-colors">
-                  {value.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {value.description}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-amber-600 font-medium">Learn more</span>
-                  {expandedValue === index ? (
-                    <ChevronUp className="text-amber-600 group-hover:text-amber-800 transition-colors" size={20} />
-                  ) : (
-                    <ChevronDown className="text-amber-600 group-hover:text-amber-800 transition-colors" size={20} />
-                  )}
-                </div>
-                
-                {expandedValue === index && (
-                  <div className="mt-8 p-6 bg-amber-50 rounded-lg border-t-2 border-amber-200 animate-fade-in">
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {value.details}
-                    </p>
+      {/* Story Section */}
+      <section className="py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                Our Heritage
+              </div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                A Legacy of <span className="text-amber-600">Quality</span> & <span className="text-orange-600">Innovation</span>
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Founded in 2003 by Surjit Kumar, Verma Flour Mill began with a simple mission: to provide families with the purest, freshest flour using modern techniques that preserve traditional quality.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-amber-100 p-3 rounded-lg">
+                    <Wheat className="text-amber-600" size={20} />
                   </div>
-                )}
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Farm Fresh Grains</h3>
+                    <p className="text-gray-600">Sourced directly from trusted local farmers</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <Shield className="text-blue-600" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Quality Assurance</h3>
+                    <p className="text-gray-600">Rigorous testing at every production stage</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 p-3 rounded-lg">
+                    <Truck className="text-green-600" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Fast Delivery</h3>
+                    <p className="text-gray-600">Fresh flour delivered to your doorstep</p>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </motion.div>
 
-      {/* Interactive Timeline Section with improved spacing */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              Our Journey
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-8">
-              Journey Through Time
-            </h2>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-amber-500 to-orange-500 rounded-full"></div>
-            
-            <div className="space-y-20">
-              {timeline.map((item, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} cursor-pointer`}
-                  onClick={() => setActiveTimeline(index)}
-                  onMouseEnter={() => setActiveTimeline(index)}
-                >
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
-                    <div className={`bg-white rounded-2xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 ${activeTimeline === index ? 'ring-2 ring-amber-500 shadow-2xl scale-105' : ''}`}>
-                      <h3 className="text-2xl font-bold text-amber-900 mb-4">{item.title}</h3>
-                      <p className="text-gray-600 mb-8 leading-relaxed text-lg">{item.description}</p>
-                      
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-xl font-bold text-amber-600">{item.stats.customers}</div>
-                          <div className="text-xs text-gray-500">Customers</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-xl font-bold text-orange-600">{item.stats.villages}</div>
-                          <div className="text-xs text-gray-500">Villages</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-xl font-bold text-yellow-600">{item.stats.mills}</div>
-                          <div className="text-xs text-gray-500">Mills</div>
-                        </div>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 bg-gradient-to-r from-amber-400 to-orange-500 rounded-2xl blur opacity-20"></div>
+              <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
+                <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-amber-100 to-orange-100 p-8">
+                  <div className="flex items-center justify-center h-full">
+                    <div className="text-center">
+                      <div className="text-6xl mb-6">🏭</div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">2003</h3>
+                      <p className="text-gray-600">The beginning of our journey</p>
+                      <div className="mt-6 bg-white/80 backdrop-blur-sm rounded-lg p-4 inline-block">
+                        <p className="text-sm text-gray-700 italic">
+                          "Pure flour through modern excellence" - Surjit Kumar
+                        </p>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="relative">
-                    <div className={`w-24 h-24 ${item.color} text-white rounded-full flex items-center justify-center font-bold text-lg shadow-2xl transform transition-all duration-500 ${activeTimeline === index ? 'scale-125' : 'hover:scale-110'}`}>
-                      {item.year}
-                    </div>
-                    {activeTimeline === index && (
-                      <div className="absolute inset-0 w-24 h-24 bg-white rounded-full animate-ping opacity-20"></div>
-                    )}
-                  </div>
-                  
-                  <div className="w-1/2"></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Mission Section with improved spacing */}
-      <section className="relative py-12 bg-gradient-to-br from-amber-900 via-orange-800 to-red-900 text-white overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-y-6 animate-pulse"></div>
-          <div className="absolute top-20 left-20 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse delay-75"></div>
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-white rounded-full blur-3xl animate-pulse delay-150"></div>
+      {/* Values Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-amber-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Foundation</h2>
+            <div className="inline-flex bg-amber-500 text-white px-6 py-2 rounded-full">
+              Our Values
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            {values.map((value, index) => (
+              <motion.div
+                whileHover={{ y: -5 }}
+                key={index}
+                className={`bg-white rounded-xl shadow-sm hover:shadow-md overflow-hidden transition-all ${expandedValue === index ? 'ring-2 ring-amber-500' : ''}`}
+                onClick={() => setExpandedValue(expandedValue === index ? null : index)}
+              >
+                <div className={`p-8 ${value.color} flex justify-center`}>
+                  <motion.div whileHover={{ scale: 1.1 }}>
+                    {value.icon}
+                  </motion.div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
+                  <p className="text-gray-600 mb-4">{value.description}</p>
+                  <div className="flex items-center justify-between text-amber-600 font-medium">
+                    <span>Learn more</span>
+                    {expandedValue === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  </div>
+                </div>
+                <AnimatePresence>
+                  {expandedValue === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 text-gray-600">
+                        {value.details}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block bg-amber-100 text-amber-800 px-6 py-3 rounded-full text-sm font-medium mb-12">
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-20 bg-gradient-to-br from-amber-900 to-orange-800 text-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-medium mb-8"
+          >
             Our Purpose
-          </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-12">Our Mission</h2>
-          <p className="text-xl md:text-2xl max-w-5xl mx-auto leading-relaxed opacity-95 mb-16">
-            To provide the freshest, purest flour using modern techniques and advanced technology. 
-            We are committed to supporting local farmers, maintaining environmental sustainability, 
-            and delivering the highest quality products that nourish families with fresh, 
-            pure flour that meets contemporary standards of excellence.
-          </p>
+          </motion.div>
           
-          <div className="flex flex-wrap justify-center gap-8">
-            <div className="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-8 py-4 rounded-full hover:bg-white/30 transition-all duration-300 cursor-pointer group">
-              <span className="group-hover:scale-125 transition-transform">🌾</span>
-              <span>Supporting Local Farmers</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-8 py-4 rounded-full hover:bg-white/30 transition-all duration-300 cursor-pointer group">
-              <span className="group-hover:scale-125 transition-transform">🏭</span>
-              <span>Modern Technology</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white/20 backdrop-blur-sm px-8 py-4 rounded-full hover:bg-white/30 transition-all duration-300 cursor-pointer group">
-              <span className="group-hover:scale-125 transition-transform">✨</span>
-              <span>Fresh & Pure Quality</span>
-            </div>
-          </div>
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold mb-8"
+          >
+            Our Mission & Vision
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-xl max-w-4xl mx-auto mb-12 leading-relaxed"
+          >
+            To revolutionize flour production by combining traditional quality with modern technology, ensuring every family has access to pure, nutritious flour while supporting sustainable farming practices.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          >
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:border-white/30 transition-all"
+            >
+              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Heart className="text-white" size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Quality Commitment</h3>
+              <p className="text-white/90">Uncompromising standards for purity and freshness in every batch</p>
+            </motion.div>
+            
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:border-white/30 transition-all"
+            >
+              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Globe className="text-white" size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Community Impact</h3>
+              <p className="text-white/90">Supporting local farmers and sustainable agriculture practices</p>
+            </motion.div>
+            
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:border-white/30 transition-all"
+            >
+              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Cpu className="text-white" size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Innovation</h3>
+              <p className="text-white/90">Continuous improvement through technology and modern techniques</p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

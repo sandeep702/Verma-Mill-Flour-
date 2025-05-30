@@ -72,7 +72,7 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center space-x-2 hover-lift">
                 <div className="w-3 h-3 bg-brown-warm rounded-full animate-pulse-glow"></div>
-                <span className="text-sm font-medium text-gray-700">23+ Years Legacy</span>
+                <span className="text-sm font-medium text-gray-700">20+ Years Legacy</span>
               </div>
             </div>
 

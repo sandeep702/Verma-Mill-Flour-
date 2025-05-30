@@ -33,7 +33,7 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className={`bg-cream  sticky h-20 content-center  top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'} border-b border-gray-200`}>
+    <nav className={`bg-cream  sticky h-24 content-center  top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'} border-b border-gray-200`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-2">
         <div className="flex justify-between items-center h-16">
           {/* Logo on the left */}
