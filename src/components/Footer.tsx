@@ -25,7 +25,7 @@ const Footer = () => {
             <div className="group flex items-center space-x-2 transition-transform duration-200">
               <div className="w-16 h-16 bg-lime-200 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                 <img 
-                  src="/lovable-uploads/logo.png" 
+                  src="/uploads/logo.png" 
                   alt="Verma Flour Mill Logo" 
                   className="w-18 h-18 group-hover:scale-110 transition-transform duration-300" 
                 />

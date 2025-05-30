@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo on the left */}
           <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all duration-200" onClick={() => setIsOpen(false)}>
-            <img src="/lovable-uploads/logo.png" alt="Logo" className="h-32 w-32 rounded-full" />
+            <img src="/uploads/logo.png" alt="Logo" className="h-32 w-32 rounded-full" />
           <Link to="/"
   className="hidden sm:block  leading-tight animate-pulse hover:scale-105 transition-transform duration-500 ease-in-out"
 >

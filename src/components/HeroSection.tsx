@@ -99,7 +99,7 @@ const HeroSection = () => {
           {/* Image */}
           <div className="relative">
             <img
-              src="/lovable-uploads/bededb14-02b4-4c7b-b406-98ecbc63b475.png"
+              src="/uploads/img.png"
               alt="Premium Quality - Traditional Stone Grinding"
               className="shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
             />
