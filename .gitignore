@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Cache
+.cache/
+
+# Coverage
+coverage/
+
+# Logs
+*.log
