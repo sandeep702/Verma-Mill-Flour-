@@ -121,10 +121,10 @@ This project is proprietary software owned by Verma Flour Mill.
 
 ## 📞 Contact
 
-- **Website**: [Your website URL]
-- **Email**: [Your email]
-- **Phone**: [Your phone number]
-- **Address**: [Your address]
+- **Website**: [empty]
+- **Email**: [kamboz629@gmail.com]
+- **Phone**: [8295059554]
+- **Address**: [empty]
 
 ---
 
